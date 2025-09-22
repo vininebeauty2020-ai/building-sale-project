@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>전화 문의 연결</title>
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;background:#fff;color:#111}
+    .wrap{max-width:560px;margin:0 auto;padding:28px;text-align:center}
+    .btn{display:inline-block;margin-top:14px;padding:14px 18px;border-radius:12px;
+         background:#fae100;font-weight:700;text-decoration:none;color:#111}
+    .small{color:#777;font-size:13px;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>전화로 바로 문의하기</h2>
+    <p>아래 버튼을 누르면 전화 앱이 열립니다.</p>
+    <a class="btn" href="tel:01033864259">전화 연결</a>
+    <p class="small">전화 연결이 자동으로 되지 않으면 위 버튼을 한 번 더 눌러 주세요.</p>
+  </div>
+
+  <!-- (선택) 자동 시도: 일부 브라우저는 자동 tel 실행을 막을 수 있어요 -->
+  <script>
+    setTimeout(function(){ location.href='tel:01033864259'; }, 300);
+  </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html> 
+
+<html lang="ko"> 
+
+<head> 
+
+  <meta charset="utf-8" /> 
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+
+  <title>부산 오션뷰 상가 안내</title> 
+
+ 
+
+  <!-- Kakao JS SDK --> 
+
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script> 
+
+ 
+
+  <style> 
+
+    :root { --yellow:#fae100; --text:#111; --muted:#666; } 
+
+    * { box-sizing:border-box; } 
+
+    body { margin:0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif; color:var(--text); } 
+
+    .wrap { max-width:720px; margin:0 auto; padding:40px 20px; text-align:center; } 
+
+    h1 { margin:0 0 10px; font-size:24px; } 
+
+    p  { margin:0 0 24px; color:var(--muted); } 
+
+    .btn-kakao { 
+
+      display:inline-flex; align-items:center; gap:8px; 
+
+      padding:14px 18px; border:0; border-radius:12px; background:var(--yellow); 
+
+      font-weight:800; cursor:pointer; font-size:16px; 
+
+    } 
+
+    .btn-kakao img { width:28px; height:28px; display:block; } 
+
+    .thumb { width:100%; max-width:560px; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,.06); margin:0 auto 18px; display:block; } 
+
+  </style> 
+
+</head> 
+
+<body> 
+
+  <div class="wrap"> 
+
+    <h1>부산 오션뷰 상가</h1> 
+
+    <p>아래 버튼을 누르면 카카오톡으로 “이미지 + 설명 + 버튼2개” 카드가 전송됩니다.</p> 
+
+ 
+
+    <!-- 썸네일 미리보기(선택) --> 
+
+    <img class="thumb" src="https://vininebeauty2020-ai.github.io/building-project/busan.png" alt="대표 이미지" /> 
+
+ 
+
+    <!-- 카카오톡 공유 버튼 --> 
+
+    <button class="btn-kakao" onclick="shareKakao()"> 
+
+      <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt=""> 
+
+      카카오톡으로 공유하기 
+
+    </button> 
+
+  </div> 
+
+ 
+
+  <script> 
+
+    // 1) Kakao SDK 초기화 (반드시 JavaScript 키) 
+
+    if (window.Kakao && !Kakao.isInitialized()) { 
+
+      Kakao.init('b9a150ba7c273d7bc9534df138b54c6e'); // 본인 JS 키 
+
+    } 
+
+ 
+
+    // 2) 공유: 카드(이미지 + 설명 + 버튼 2개) 
+
+    function shareKakao() { 
+
+      // 두 버튼 모두 "내 도메인"으로 보내 안전하게 유지 
+
+      const detailPage = 'https://vininebeauty2020-ai.github.io/building-project/detail.html'; 
+
+      const callPage   = 'https://vininebeauty2020-ai.github.io/building-project/call.html'; 
+
+ 
+
+      Kakao.Share.sendDefault({ 
+
+        objectType: 'feed', 
+
+        content: { 
+
+          title: '부산 오션뷰 상가 매입제안서', 
+
+          description: '이미지나 버튼을 누르면 이동합니다.', 
+
+          imageUrl: 'https://vininebeauty2020-ai.github.io/building-project/busan.png', 
+
+          link: { webUrl: detailPage, mobileWebUrl: detailPage } // 카드 전체 클릭 시 
+
+        }, 
+
+        buttons: [ 
+
+          { title: '상가 자세히 보기', link: { webUrl: detailPage, mobileWebUrl: detailPage } }, 
+
+          { title: '전화문의',       link: { webUrl: callPage,   mobileWebUrl: callPage   } } 
+
+        ] 
+
+      }); 
+
+    } 
+
+  </script> 
+
+</body> 
+
+</html> 
